@@ -19,8 +19,9 @@ class Vale(Linter):
     defaults = {
         'selector': 'text.plain, text.html.markdown',
     }
-    cmd = 'vale --no-wrap'
-    executable = None
+    # cmd = 'vale --no-wrap'
+    cmd = ('vale', '${args}', '${temp_file}')
+    # executable = None
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 0.5.0'
@@ -31,9 +32,10 @@ class Vale(Linter):
     )
     multiline = True
     line_col_base = (1, 1)
-    tempfile_suffix = None
-    error_stream = util.STREAM_BOTH
+    tempfile_suffix = 'md'
+    # error_stream = util.STREAM_BOTH
+    error_stream = util.STREAM_STDERR
     word_re = None
-    inline_settings = None
-    inline_overrides = None
-    comment_re = None
+    # inline_settings = None
+    # inline_overrides = None
+    # comment_re = None

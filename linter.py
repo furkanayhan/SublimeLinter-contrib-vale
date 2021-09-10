@@ -20,22 +20,22 @@ class Vale(NodeLinter):
         'selector': 'text.plain, text.html.markdown',
     }
     # cmd = 'vale --no-wrap'
-    cmd = ('vale', '${args}', '${temp_file}')
+    cmd = ('vale --no-wrap', '${args}', '${temp_file}')
     # executable = None
     # version_args = '--version'
     # version_re = r'(?P<version>\d+\.\d+\.\d+)'
     # version_requirement = '>= 0.5.0'
-    #regex = (
-    #    r'(?P<line>\d+):(?P<col>\d+)\s{2,}'
-    #    r'((?P<error>error)|(?P<warning>warning))\s{2,}'
-    #    r'(?P<message>.+?)(?=$)'
-    #)
-    regex = r'.+?(?:[:](?P<line>\d+))(?:[:](?P<col>\d+))?\s+(?P<error>MD\d+)?[/]?(?P<message>.+)'
-    multiline = False
+    regex = (
+        r'(?P<line>\d+):(?P<col>\d+)\s{2,}'
+        r'((?P<error>error)|(?P<warning>warning))\s{2,}'
+        r'(?P<message>.+?)(?=$)'
+    )
+    # regex = r'.+?(?:[:](?P<line>\d+))(?:[:](?P<col>\d+))?\s+(?P<error>MD\d+)?[/]?(?P<message>.+)'
+    multiline = True
     line_col_base = (1, 1)
     tempfile_suffix = 'md'
-    # error_stream = util.STREAM_BOTH
-    error_stream = util.STREAM_STDERR
+    error_stream = util.STREAM_BOTH
+    # error_stream = util.STREAM_STDERR
     word_re = None
     # inline_settings = None
     # inline_overrides = None

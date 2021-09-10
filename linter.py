@@ -20,7 +20,7 @@ class Vale(NodeLinter):
         'selector': 'text.plain, text.html.markdown',
     }
     # cmd = 'vale --no-wrap'
-    cmd = ('vale --no-wrap', '${args}', '${temp_file}')
+    cmd = ('vale', '--no-wrap', '${args}', '${temp_file}')
     # executable = None
     # version_args = '--version'
     # version_re = r'(?P<version>\d+\.\d+\.\d+)'
